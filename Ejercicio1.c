@@ -2,10 +2,10 @@
 #include <stdlib.h>
 
 void arreglo_matriz(int *mat, size_t fila, size_t colum, int *out) {
-    int *r = mat;
-    int *w = out;
+    int *read = mat;
+    int *write = out;
     for (size_t i = 0; i < fila * colum; ++i) {
-        *(w + i) = *(r + i);
+        *(write + i) = *(read + i);
     }
 }
 
@@ -28,25 +28,25 @@ void bubble_sort(int *arr, size_t n) {
 }
 
 void matriz(int *arr, size_t fila, size_t colum, int *mat_out) {
-    int *r = arr;
-    int *w = mat_out;
+    int *read = arr;
+    int *write = mat_out;
     for (size_t k = 0; k < fila * colum; ++k) {
         *(mat_out + k) = *(arr + k);
     }
 }
 
-void print_matriz(const int *mat, size_t fila, size_t colum) {
+void print_matriz(int *mat, size_t fila, size_t colum) {
     const int *base = mat;
     for (size_t i = 0; i < fila; ++i) {
         for (size_t j = 0; j < colum; ++j) {
             const int *elem = base + (i * colum + j);
             printf("%4d", *elem);
         }
-        pchar('\n');
+        putchar('\n');
     }
 }
 
-void caso(const int *mat_in, size_t fila, size_t colum) {
+void caso(int *mat_in, size_t fila, size_t colum) {
     size_t n = fila * colum;
     int *arr = (int*)malloc(n * sizeof(int));
     int *mat_out = (int*)malloc(n * sizeof(int));
