@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 
 char* const_output( char* ruta) {
@@ -93,7 +94,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    int rc = reemplazar(in, out, p_buscar, repl);
+    int rc = busqueda(in, out, p_buscar, repl);
     if (rc != 0) {
         fprintf(stderr, "Error: sin memoria durante el reemplazo.\n");
         fclose(in);
