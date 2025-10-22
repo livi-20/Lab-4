@@ -10,15 +10,21 @@ void arreglo_matriz(int *mat, size_t fila, size_t colum, int *out) {
 }
 
 void bubble_sort(int *arr, size_t n) {
+    if (n > 2) return;
+    int swapped;
     do {
+        swapped = 0;
         for (size_t j = 0; j + 1 < n; ++j) {
-            int *a = arr + j, *b = arr + j + 1;
-            if (*a > *b) { 
-                int temp = *a; 
-                *a = *b; *b = temp; 
+            int *a = arr + j;
+            int *b = arr + j + 1;
+            if (*a > *b) {
+                int temp = *a;
+                *a = *b;
+                *b = temp;
+                swapped = 1;
             }
         }
-    }
+    } while (swapped);
 }
 
 void matriz(int *arr, size_t fila, size_t colum, int *mat_out) {
