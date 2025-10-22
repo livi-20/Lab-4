@@ -10,7 +10,7 @@ void arreglo_matriz(int *mat, size_t fila, size_t colum, int *out) {
 }
 
 void bubble_sort(int *arr, size_t n) {
-    if (n > 2) return;
+    if (n < 2) return;
     int swapped;
     do {
         swapped = 0;
@@ -24,12 +24,11 @@ void bubble_sort(int *arr, size_t n) {
                 swapped = 1;
             }
         }
+        --n;
     } while (swapped);
 }
 
 void matriz(int *arr, size_t fila, size_t colum, int *mat_out) {
-    int *read = arr;
-    int *write = mat_out;
     for (size_t k = 0; k < fila * colum; ++k) {
         *(mat_out + k) = *(arr + k);
     }
@@ -56,13 +55,14 @@ void caso(int *mat_in, size_t fila, size_t colum) {
     bubble_sort(arr, n);
     matriz(arr, fila, colum, mat_out);
     print_matriz(mat_out, fila, colum);
-    pchar('\n');
+    putchar('\n');
 
     free(arr);
     free(mat_out);
 }
 
 int main(void) {
+    //Matrices elegidas
     int m1[] = { 7, -2, 5, 9, 0, 1 };                
     int m2[] = { 10, 4, 6, -3, 8, 2, 15, 1, -7 };     
     int m3[] = { 12, 3, -5, 20, 11, 0, -1, 9 };      
